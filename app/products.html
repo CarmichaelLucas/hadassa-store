@@ -2,19 +2,74 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hadassa Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hadassa</title>
 
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
 </head>
 <body>
-    
+    <header>
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand">HADASSA</a>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </nav>
 
+          <nav class="mt-2">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link" href="./index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="./products.html">Produtos</a>
+                </li>
+              </ul>
+          </nav>
+    </header>
+    <main class="mt-5 mb-5">
+        <section class="container">
+            <form>
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <label for="validationServer01">Modelo</label>
+                    <input type="text" class="form-control is-valid" id="validationServer01" required>
+                    <div class="valid-feedback">
+                      Looks good!
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="validationServer02">Marca</label>
+                    <input type="text" class="form-control is-invalid" id="validationServer02" required>
+                    
+                  </div>
+                </div>
 
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                      <label for="validationServer01">Modelo</label>
+                      <input type="text" class="form-control is-invalid" id="validationServer01" required>
+                      
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="validationServer02">Marca</label>
+                      <input type="text" class="form-control is-valid" id="validationServer02" required>
+                      
+                    </div>
+                  </div>
+                
+                <button class="btn btn-primary" type="submit">Submit form</button>
+              </form>
+        </section>
+    </main>
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">&copy; 2020 - Hadassa</span>
+        </div>
+    </footer>
     <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
