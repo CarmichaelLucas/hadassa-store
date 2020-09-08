@@ -1,3 +1,5 @@
+const listaProdutos = JSON.parse(localStorage.getItem('lista_produto')) || [];
+
 function addListaProdutos() {
 
     const btnCadastraProduto = document.querySelector('#btn-save');
@@ -8,7 +10,8 @@ function addListaProdutos() {
 
         const formProdutos = document.querySelector('#formulario-produtos');
 
-        saveListaProdutosStorage(
+
+        listaProdutos.push(
             criaProduto(
                 {
                     modelo: formProdutos.modelo.value,
@@ -19,20 +22,20 @@ function addListaProdutos() {
                 }
             )
         );
+
+        saveListaProdutosStorage();
     
         formProdutos.reset();
     });
 
 };
 
-function saveListaProdutosStorage(produto) {
-    const listaProdutos = new Array();
-    listaProdutos.push(produto);
+function saveListaProdutosStorage() {
+    
     localStorage.setItem('lista_produto', JSON.stringify(listaProdutos));
 };
 
 function exibeProdutos(){
-    const listaProdutos = JSON.parse(localStorage.getItem('lista_produto')) || [];
 
     const tabelaProdutos = document.querySelector('#corpo-tabela');
 
@@ -60,7 +63,7 @@ function exibeProdutos(){
             trElement.appendChild(tdTamanho);
             trElement.appendChild(tdQtde);
             trElement.appendChild(tdValor);
-            
+
             tabelaProdutos.appendChild(trElement);
         });
 
