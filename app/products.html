@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Hadassa</title>
 
-    <!--Import materialize.css-->
+    <script src="./services/app.js"></script>
     <link type="text/css" rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
 </head>
 <body>
@@ -51,13 +52,22 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="col-md-5 mb-3">
-                      <label for="validationServer01">Tamanho</label>
-                      <input type="text" name="tamanho" class="form-control" id="validationServer03" >
-                      <span id="feedback03">
+                    
+                  <div class="col-md-5 mb-3">
+                    <label for="exampleFormControlSelect1">Tamanho</label>
+                    <select class="form-control" name="tamanho" id="exampleFormControlSelect1">
+                      <option value="pp">PP</option>
+                      <option value="p">P</option>
+                      <option value="m">M</option>
+                      <option value="g" selected>G</option>
+                      <option value="gg">GG</option>
+                      <option value="unico">Único</option>
+                    </select>
+                    <span id="feedback03">
                       
-                      </span>
-                    </div>
+                    </span>
+                  </div>
+                  
                     <div class="col-md-4 mb-3">
                       <label for="validationServer02">Qtde.</label>
                       <input type="text" name="qtde" class="form-control" id="validationServer04" >
@@ -86,8 +96,7 @@
     </footer>
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="./bootstrap/js/cadastroProdutos.js"></script>
-    <script type="text/javascript" src="./bootstrap/js/produtos.js"></script>
-
+    <script type="text/javascript" src="./services/produto.js"></script>
+    <script type="text/javascript" src="./services/listaProdutos.js"></script>
   </body>
 </html>
