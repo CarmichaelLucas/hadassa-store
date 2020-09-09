@@ -49,6 +49,7 @@ function exibeProdutos(){
             const tdTamanho = document.createElement('td');
             const tdQtde    = document.createElement('td');
             const tdValor   = document.createElement('td');
+            const tdRem     = document.createElement('td');
 
             tdModelo.setAttribute('scope', 'row');
 
@@ -57,12 +58,20 @@ function exibeProdutos(){
             tdTamanho.textContent = produto.tamanho;
             tdQtde.textContent    = produto.qtde;
             tdValor.textContent   = produto.valor;
-
+            
+            const txtTdRem = document.createTextNode('X');
+            tdRem.appendChild(txtTdRem);
+            const pos = listaProdutos.indexOf(produto);
+            tdRem.setAttribute('onclick', `removeProduto(${pos})`);
+            tdRem.classList.add('text-danger');
+            //tdRem.classList.add('text-center');
+            
             trElement.appendChild(tdModelo);
             trElement.appendChild(tdMarca);
             trElement.appendChild(tdTamanho);
             trElement.appendChild(tdQtde);
             trElement.appendChild(tdValor);
+            trElement.appendChild(tdRem);
 
             tabelaProdutos.appendChild(trElement);
         });
@@ -82,3 +91,10 @@ function exibeProdutos(){
  
     }
 };
+
+function removeProduto(pos){
+
+    listaProdutos.splice(pos, 1);
+    document.location.reload(true);
+    saveListaProdutosStorage();
+}
