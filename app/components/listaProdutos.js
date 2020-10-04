@@ -1,42 +1,40 @@
+import saveListaProdutosStorage from './storage.js';
+import criaProduto from './produto.js';
+
 const listaProdutos = JSON.parse(localStorage.getItem('lista_produto')) || [];
 
-function addListaProdutos() {
+const addListaProdutos = () => {
 
     const btnCadastraProduto = document.querySelector('#btn-save');
 
-    btnCadastraProduto.addEventListener('click', (evento) => {
-        
-        evento.preventDefault();
-
-        const formProdutos = document.querySelector('#formulario-produtos');
-
-
-        listaProdutos.push(
-            criaProduto(
-                {
-                    modelo: formProdutos.modelo.value,
-                    marca: formProdutos.marca.value,
-                    tamanho: formProdutos.tamanho.value,
-                    qtde: formProdutos.qtde.value,
-                    valor: formProdutos.valor.value
-                }
-            )
-        );
-
-        saveListaProdutosStorage();
-    
-        formProdutos.reset();
-    });
+    btnCadastraProduto.addEventListener('click', adicionaProduto);
 
 };
 
-function saveListaProdutosStorage() {
+const adicionaProduto = evento => {
+            
+    evento.preventDefault();
+    const formProdutos = document.querySelector('#formulario-produtos');
+
+    listaProdutos.push(
+        criaProduto(
+            {
+                modelo: formProdutos.modelo.value,
+                marca: formProdutos.marca.value,
+                tamanho: formProdutos.tamanho.value,
+                qtde: formProdutos.qtde.value,
+                valor: formProdutos.valor.value
+            }
+        )
+    );
+
+    saveListaProdutosStorage(listaProdutos);
+    formProdutos.reset();
+}
+
+
+const exibeProdutos = () => {
     
-    localStorage.setItem('lista_produto', JSON.stringify(listaProdutos));
-};
-
-function exibeProdutos(){
-
     const tabelaProdutos = document.querySelector('#corpo-tabela');
 
     if(listaProdutos.length > 0){
@@ -88,13 +86,19 @@ function exibeProdutos(){
         tdElement.classList.add('text-center');
 
         trElement.appendChild(tdElement);
- 
+        tabelaProdutos.appendChild(trElement);
     }
 };
 
-function removeProduto(pos){
+function removeProduto (pos) {
 
     listaProdutos.splice(pos, 1);
     document.location.reload(true);
-    saveListaProdutosStorage();
-}
+    saveListaProdutosStorage(listaProdutos);
+};
+
+export {
+    addListaProdutos,
+    exibeProdutos,
+    removeProduto
+};
